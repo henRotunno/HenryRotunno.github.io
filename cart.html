@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script type="module" src="https://js.arcgis.com/4.34/embeddable-components/"></script>
+</head>
+
+
+
+<style>
+    .header{
+        text-align:center;
+    }
+    .what{
+        text-align:center;
+        padding-top: 20px;
+    }
+    .gis{
+        text-align: center;
+        margin-left: 20%;
+        margin-right:20%;
+    }
+    .data img {
+        margin-left: 38%;
+        width: 350px;
+    }
+    .projects {
+        text-align: center;
+        padding-top: 50px;
+    }
+    .ndvi img {
+       width: 40%;
+       margin-left: 30%;
+    }
+
+    .ndwhat {
+        text-align: center;
+        margin-left: 15%;
+        margin-right: 15%;
+    }
+    .meadow { 
+        margin-left: 370px;
+    }
+    .park {
+        text-align: center;
+        margin-left: 15%;
+        margin-right: 15%;
+    }
+    .fun {
+        text-align: center;
+    }
+    .stand img {
+        height: 50%;
+        width: 50%;
+        margin-left: 25%;
+    }
+    .layout {
+        text-align: center;
+        margin-left: 15%;
+        margin-right: 15%;
+    }
+    .dashy img {
+        width:60%;
+        height:50%;
+        margin-left: 20%;
+    }
+    .title {
+        text-align: center;
+    }
+    .green img {
+        width: 50%;
+        height: 50%;
+        margin-left: 25%;
+    }
+    .problem {
+        text-align: center;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+    .model img {
+        width:80%;
+        height:75%;
+        margin-left: 10%;
+    }
+    .queryr img {
+        margin-left: 20%;
+    }
+    
+    .break {
+        text-align: center;
+    }
+    .result img {
+        width: 50%;
+        height:50%;
+        margin-left:26%
+    }
+    .final img {
+        width: 65%;
+        height: 65%;
+        margin-left:15%;
+    }
+    .home img {
+        width: 5%;
+        height: 5%;
+        margin-left: 46%;
+            }
+
+    .home:hover img {
+        outline: 1.5px solid #6aacf3;
+            }
+
+
+
+
+
+</style>
+
+<div class="header">
+    <h1>
+        Cartography and GIS
+    </h1>
+</div>
+
+<div class="what">
+    <h3>
+        What the heck is a GIS?
+    </h3>
+</div>
+
+<div class="gis">
+    <p>
+        I'm glad you asked! GIS stands for Geographic Information Systems, 
+        it is a discipline of geography. GIS manages, visualizes, and organizes
+        geospatial data (data with longitude and latitude). There are two primary data types
+        associated with GIS:
+        vector and raster. The former consists of lines, points, and polygons. Raster data is 
+        pixelated, think of weather and NDVI maps. 
+    </p>
+</div>
+
+<div class="data">
+    <img src="data.jpg">
+</div>
+
+<div class='explain' style="text-align: center;">
+    <p>
+        The two types of GIS data
+    </p>
+</div>
+
+<div class="projects">
+    <h2>
+        GIS Maps
+    </h2>
+</div>
+
+<div class="ndvi">
+    <img src="ndvi.png">
+</div>
+
+<div class="ndwhat">
+    <p>
+        I created this map by downloading landsat (satellite) data from the US Geological Survey. 
+        It showcases the normalized difference vegetation index (NDVI). NDVI is a metric that 
+        describes vegetation health based on a plants ability to absorb red light and reflect infrared light.
+        In ArcGIS Pro, I utilized the Raster Calculator tool to create a new NDVI layer with the equation:
+        ("Infared" - "Red") / ("Infared" + "Red"). This equation will produce a result from -1 to 1 for a specific area. Finally
+        I created a new layout and highlighted an area with high vegetative health/NDVI value. Asheville in comparison
+        has weaker vegatative health. As a reminder this is raster data!
+    </p>
+</div>
+   
+<hr>
+
+<div class="meadow">
+ <arcgis-embedded-map style="height:600px;width:700px;" item-id="daeca7c759aa4c748959209b4bf38121" theme="dark" heading-enabled center="-88.20507568638746,40.08073722803385"scale="9027.977411" portal-url="https://univofillinois.maps.arcgis.com"></arcgis-embedded-map>
+</div>
+
+<div class="park">
+    <p>
+        In this interactive map I created a feature layer in ArcGIS Online for statues at Meadowbrook Park in Urbana Illinois. 
+        I then collected data with ArcGIS Field Maps. Feel free to click on each point, they include information about 
+        statue type, rating, and a picture (some with me).  The process of this map proved to be incredibly useful because 
+        my summer 2025 internship at Roselle Public Works involved a lot of ArcGIS Field Maps work.
+    </p>
+</div>
+
+<div class="fun">
+    <p>
+        Fun Fact: I collected the data while on a medium long run in the rain! The Meadowbrook Park loop ended up being 8 miles long. 
+        Sadly I did not get extra credit for this effort.
+    </p>
+</div>
+
+<hr>
+
+<div class="stand">
+    <img src="stand.png">
+</div>
+
+<div class="layout">
+    <p>
+        I will admit when I first created this map I felt like a real cartographer. The metadata at the 
+        bottom, legend, blending, and beautiful colors meant some serious business. I enjoy how GIS projects often
+        combines technical and design philosphies. If a map's design choices convolute the message the data is attempting to portray,
+        the map fails. It is vital to determine an audience for a map and tailor the design for that specific audience.
+    </p>
+</div>
+
+<hr>
+
+<div class="dashy">
+    <img src="dash.png">
+</div>
+
+<p style="text-align:center; margin-left:15%; margin-right:15%;">
+    What good is data if you can't put it into one cool dashboard? In this project I downloaded vehicle theft data from 
+    the Chicago Police Department Portal. I used ModelBuilder (see below) to calculate count, rate, hotspots, confidence intervals, and percent change from 2019 to 2023
+    for each Chicago neighborhood. The charts react to the current view of the map. For example, if you zoom into Logan Square, it'll only show Logan Square data. 
+    Furthermore, the user can select 
+    a specific layer (count, percent change, rate) and analyze trends throughout the city. During this project
+    I learned about the strength and annoyances of the ArcGIS ModelBuilder. I also learned that saving your work frequently
+    is important because sometimes ArcGIS Pro crashes out of nowhere, boom, 3 hours of work tragically gone!
+</p>
+
+<div class="model">
+    <img src="model.png">
+</div>
+
+<div class="title">
+    <h3>
+        ModelBuilder
+    </h3>
+
+    <p style="margin-left:5%; margin-right:5%">
+        ArcGIS ModelBuilder is akin to the cool coding games you may have played in elementary. It is a visual way to 
+        run and reuse code. Typically a model you create is chained together like a snake. In this example I used summarize within
+        to combine Chicago neighborhoods and census tracts into one augmented layer. Calculate fields is a valuable method to
+        obtain statistical metrics with geospatial data. Learning how to utilize ModelBuilder is crucial
+        to master spatial analysis in ArcGIS Pro. In addition Python and R are helpful to know for GIS work/scripting.
+    </p>
+</div>
+
+<hr>
+
+<div class="title">
+    <h2>
+        A Quick Note About Projections
+    </h2>
+
+    <h5>
+        You may or may not have noticed this glaring flaw...
+    </h5>
+</div>
+
+<div class="green">
+    <img src="greenland.png">
+</div>
+
+<div class="problem">
+    <p>
+        I'll tell you whats wrong! Greenland is NOT larger than Africa! In fact, 
+        Greenland can fit into Africa 14 times! The reason why Greenland looks funky in this map is the projection I selected.
+        A projection is the process of turning our 3D earth into a 2D plane. There is no such thing as a 
+        "perfect projection". Each has their own flaws, the cartographer should select the best projection possible in accordance with 
+        their primary message and audience. A lot of maps in our schools use the mercator projection.
+        The mercator was created in the 19th century and emphasizes western nations over others (colonization). This gives many people
+        the impression that west is larger and more significant than Africa, South America, and Asia. 
+        If you are making a map, research the best projection to use!!!!!
+    </p>
+</div>
+
+<hr>
+
+<div class="meadow">
+     <arcgis-embedded-map style="height:600px;width:750px;" item-id="5f766243277d4271831da7d8b3c6fb2b" theme="dark" legend-enabled center="-92.90347386140982,37.45437446026117"scale="18489297.737236" portal-url="https://univofillinois.maps.arcgis.com"></arcgis-embedded-map>
+</div>
+
+<div style="text-align:center;">
+    <h3>
+        Open data vegetation health per 10 days by country
+    </h3>
+</div>
+
+<hr>
+
+<div class="ent" style="text-align:center;">
+    <h2>
+        ArcGIS Enterprise (WIP)
+    </h2>
+
+    <p style="margin-left:5%; margin-right:5%;">
+        ArcGIS Enterprise is a service that allows for secure management and sharing of geospatial data within an organization.
+        During my fall 2025 semester I took a Enterprise class which involved a lot of moving and publishing data. In order to work in an enterprise 
+        server, it is crucial to have a grasp of basic computer networking fundamentals to avoid breaches. Imagine what would happen if your company's map with confidential data 
+        about clients gets leaked!
+        In this class I enjoyed working with relational databases and using SQL/PostGIS to extract specific geospatial information.  
+        I plan to take additional database classes to build upon my foundation I've established over the last year.
+        The image below is an example of some of the queries I ran in class!
+    </p>
+</div>
+
+<div class="queryr">
+    <img src="query.png">
+</div>
+
+<div class="break">
+    <h4> 
+        <a href='https://tenor.com/view/benson-regular-show-gif-8490277471143439449' target="_blank">Let me break it down for you</a> line by line:
+    </h4>
+
+    <p>
+        1) Select ALL hospitals (hospitals.*) - All points/data from the hospital table
+    </p>
+       
+    2) From the hospitals and county_boundary table - We have a table for Virginia hospitals and Pittsylvania County boudnaries
+    <p>
+
+    <p>
+        3) Where the hospital is within (st_dwithin) ~30 miles (50000 meters) - The public.st_transform is a weird PostGIS quirk
+    </p>
+    
+    <h4>
+    Result:
+    </h4>
+</div>
+
+<div class="result">
+    <img src="result.png">
+</div>
+
+<div class="break">
+    <p>
+        Pretty cool right? Hospitals within 30 miles of Pittsylvania County 
+    </p>
+
+</div>
+
+<hr>
+ <h2 style="text-align:center;">
+    Cartography Final Project - Global Gender Inequality 
+ </h2>
+
+
+ <div class="final">
+    <img src="ineq.png">
+ </div>
+
+
+  <div class="home">
+                
+         <a href='index.html'><img src="home.png"></a>
+    </div>
+
+
+
+</html>
