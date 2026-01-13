@@ -94,6 +94,14 @@
         height:50%;
         margin-left:26%
     }
+
+    .i img {
+        margin-left:38%;
+        width:25%;
+        height:20%;
+
+    }
+
     .final img {
         width: 65%;
         height: 65%;
@@ -103,12 +111,13 @@
         width: 5%;
         height: 5%;
         margin-left: 46%;
-            }
+    }
 
     .home:hover img {
         outline: 1.5px solid #6aacf3;
-            }
+     }
 
+    
 
 
 
@@ -310,14 +319,14 @@
     </h4>
 
     <p>
-        1) Select ALL hospitals (hospitals.*) - All points/data from the hospital table
+        1) <a href="https://www.w3schools.com/sql/sql_select.asp" target="_blank">Select</a> ALL hospitals (hospitals.*) - All points/data from the hospital table
     </p>
        
     2) From the hospitals and county_boundary table - We have a table for Virginia hospitals and Pittsylvania County boudnaries
     <p>
 
     <p>
-        3) Where the hospital is within (st_dwithin) ~30 miles (50000 meters) - The public.st_transform is a weird PostGIS quirk
+        3) Where the hospital is within <a href="https://postgis.net/docs/ST_Within.html" target="_blank">(st_dwithin)</a> ~30 miles (50000 meters) - The public.st_transform is a weird <a href="https://postgis.net/" target="_blank">PostGIS</a> quirk
     </p>
     
     <h4>
@@ -334,6 +343,64 @@
         Pretty cool right? Hospitals within 30 miles of Pittsylvania County 
     </p>
 
+    <p style="padding-top:15px;">
+        Let me show you an example of summarize within!
+    </p>
+
+</div>
+
+<div class='postgis' style="margin-left:15%;"> 
+    <img src="postgis.png">
+</div>
+
+<div class="benson" style="text-align:center;">
+    <h4>
+        Time to <a href="https://tenor.com/view/spongebob-squarepants-patrick-star-drums-play-music-gif-5245203" target="_blank">break it down</a>:
+    </h4>
+</div>
+
+<div style="text-align:center;">
+    <p>
+        1) Select all Virginia counties by their name AND the number of beds in each hospital (SUM)
+    </p>
+
+    <p>
+        2) Select from the counties table
+    </p>
+
+    <p>
+        3) <a href="https://docs.informatica.com/data-integration/powercenter/10-5/transformation-guide/source-qualifier-transformation/joining-source-data/default-join.html" target="_blank"> Join</a> the state_hospitals table into the counties table
+    </p>
+
+    <p>
+       4) st_intersect returns true if two geometries (hospital and county boundary) intersect
+    </p>
+
+    <p>
+        5) Group By creates one entry for each county, thus giving us the amount of hospital beds per county
+    </p>
+
+    <h4>
+        Result:
+    </h4>
+</div>
+
+<div class="i">
+    <img src="posterboy.png">
+</div>
+
+<div>
+    <p style="text-align:center;">
+       Total hospital beds in Virginia counties
+    </p>
+</div>
+
+<h2 style="text-align:center; padding-top:20px;">
+    ArcGIS Enterprise Overview 
+</h2>
+
+<div style="text-align:center;">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/eflOfPK7uhU?si=_EgaUeksRbU8xe8-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </div>
 
 <hr>
@@ -346,11 +413,22 @@
     <img src="ineq.png">
  </div>
 
+   <div>
+    <p style="text-align:center; margin-left:10%; margin-right:10%;">
+        This map displays data from United Nations and World Economic Forum. The points were created in Adobe Illustrator and imported into ArcGIS Pro. 
+        In order to properly represent the world, my partner and I decided to split regions into seperate map frames. I believe this was the right decision 
+        because the viewer can jump from continent to continent seamlessly. Furthermore, we ditched Esri's ugly basemaps and created our own 
+        non-distracting basemap. Ultimately I am proud with how this map turned out, I learned a lot about design during this class. 
+        
+    </div>
+
 
   <div class="home">
                 
          <a href='index.html'><img src="home.png"></a>
     </div>
+
+  
 
 
 
